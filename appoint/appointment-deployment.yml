@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appointment-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: appointment
+  template:
+    metadata:
+      labels:
+        app: appointment
+    spec:
+      containers:
+      - name: appointment-container
+        image: 601672256547.dkr.ecr.us-west-2.amazonaws.com/nodejs/appoinment
+        ports:
+        - containerPort: 3001

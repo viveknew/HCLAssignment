@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: patient
+  template:
+    metadata:
+      labels:
+        app: patient
+    spec:
+      containers:
+      - name: patient-container
+        image: 601672256547.dkr.ecr.us-west-2.amazonaws.com/nodjsproj/patient
+        ports:
+        - containerPort: 3000
